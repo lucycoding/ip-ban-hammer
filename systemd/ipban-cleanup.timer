@@ -1,0 +1,11 @@
+[Unit]
+Description=IP Ban Hammer - Cleanup Timer
+Documentation=https://github.com/anomalyco/ip-ban-hammer
+Requires=ipban-cleanup.service
+
+[Timer]
+OnCalendar=*-*-* 03:00:00
+AccuracySec=1h
+
+[Install]
+WantedBy=timers.target

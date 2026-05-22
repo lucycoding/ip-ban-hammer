@@ -1,0 +1,19 @@
+[Unit]
+Description=IP Ban Hammer - Cleanup Service
+Documentation=https://github.com/anomalyco/ip-ban-hammer
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/ip-ban-hammer/ban_manager.sh cleanup
+StandardOutput=journal
+StandardError=journal
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/ip-ban-hammer /var/log/ip-ban-hammer /etc/ip-ban-hammer
+
+[Install]
+WantedBy=multi-user.target

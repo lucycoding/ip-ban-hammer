@@ -1,0 +1,333 @@
+# IP Ban Hammer English Language Pack
+# Format: key=value
+
+# Language metadata
+lang.name=English
+lang.code=en
+
+# ========== install.sh ==========
+install.title=IP Ban Hammer - Installer
+install.upgrade_title=IP Ban Hammer - Upgrader
+install.done=Installation complete!
+install.upgrade_done=Upgrade complete!
+install.lang_select=Select installation language:
+install.lang_option1=Chinese
+install.lang_option2=English
+install.lang_prompt=Select [1-2]:
+
+# Steps
+install.step1=[1/10] Creating directories...
+install.step2=[2/10] Detect and configure log files...
+install.step3=[3/10] Configure whitelist IPs...
+install.step4=[4/10] Configure ban policy...
+install.step5=[5/10] Advanced configuration...
+install.step6=[6/10] Copying executable scripts...
+install.step7=[7/10] Installing runtime config...
+install.step8=[8/10] Setting permissions...
+install.step9=[9/10] Setting up cron jobs...
+install.step10=[10/10] Installing CLI tool...
+
+# Log file configuration
+log.detecting=Auto-detecting...
+log.detected=Detected log files:
+log.not_detected=No log files detected
+log.select=Select log files to monitor (numbers like: 1,2,3 or enter paths directly, comma-separated)
+log.selected=Selected:
+log.confirm=Validation passed, confirm? [Y/n]
+log.retry=Invalid input, please retry (or enter 'skip' to skip):
+log.retry_invalid=The following files do not exist:
+log.modified=Modified
+log.size=Size
+log.manual=Enter log file paths (comma-separated):
+
+# Whitelist configuration
+ip.detected=Detected local IPs:
+ip.private=Private IP:
+ip.public=Public IP:
+ip.public_failed=Failed to obtain (can add manually)
+ip.add_auto=Add above IPs to whitelist? [Y/n]
+ip.add_manual=Add other IPs? (comma-separated, empty to skip):
+ip.added=Added to whitelist:
+ip.retry=Invalid IP format, please retry:
+ip.none=None
+ip.final=Final whitelist:
+
+# Ban policy
+policy.title=Select your website type:
+policy.option1=Personal Blog/Small Site   (Threshold: 3,  Window: 30min) - Fast response, low traffic
+policy.option2=Corporate Site/Medium Site (Threshold: 5,  Window: 30min) - Balanced mode, recommended
+policy.option3=E-commerce/Large Site      (Threshold: 10, Window: 20min) - Avoid false positives, high traffic
+policy.option4=API Service/High Frequency (Threshold: 15, Window: 10min) - Short window, high frequency
+policy.option5=Custom configuration
+policy.select=Select [1-5]:
+policy.selected=Selected:
+policy.threshold_custom=Enter attack threshold (triggers ban, default: 5):
+policy.window_custom=Enter time window (minutes, default: 30):
+policy.threshold=Attack threshold
+policy.window=Time window
+policy.desc=Description
+policy.desc_format=Ban after {} attack triggers within {} minutes
+
+# Advanced configuration
+advanced.ask=Enter advanced configuration mode? [y/N]
+advanced.chain=Custom iptables chain name (default: IP_BAN_HAMMER, empty for default):
+advanced.days=History retention days (default: 30):
+advanced.analyze_cron=Log analysis frequency (cron format, default: */30 * * * *):
+advanced.cleanup_cron=History cleanup time (cron format, default: 0 3 * * *):
+advanced.done=Advanced configuration complete:
+advanced.chain_label=iptables chain
+advanced.history_days=History retention
+advanced.analyze_freq=Analysis frequency
+advanced.cleanup_time=Cleanup time
+advanced.default=default
+advanced.cron_invalid=Invalid cron format, please retry:
+
+# Configuration summary
+summary.title=Configuration summary:
+summary.logs=Log files:
+summary.whitelist=Whitelist IPs:
+summary.policy=Ban policy:
+summary.advanced=Advanced config:
+summary.language=Interface language:
+summary.times=times
+summary.minutes=minutes
+summary.days=days
+
+# Management commands
+manage.title=Management commands:
+manage.status=Show status
+manage.config=Show config
+manage.help=Show help
+uninstall.section_title=Uninstall command:
+uninstall.title=IP Ban Hammer - Uninstaller
+uninstall.warn=Warning: This will completely remove IP Ban Hammer
+uninstall.confirm=Confirm uninstall? (y/N): 
+uninstall.cancelled=Cancelled
+uninstall.removing=Removing...
+uninstall.remove_chain=Removing iptables chain
+uninstall.remove_cron=Removing cron jobs
+uninstall.remove_files=Removing files
+uninstall.remove_link=Removing command link
+uninstall.done=Uninstall complete!
+uninstall.preserved=The following files were preserved, remove manually if needed:
+uninstall.keep_config=Config and data files:
+uninstall.keep_data=Data files:
+uninstall.keep_logs=Log files:
+
+# Upgrade related
+upgrade.detected=Existing installation detected, choose config handling:
+upgrade.option1=Overwrite config (use new defaults, lose customizations)
+upgrade.option2=Keep config (preserve old, may miss new options)
+upgrade.option3=Merge config (keep custom values, add new options) (Recommended)
+upgrade.select=Enter choice [1/2/3]:
+upgrade.merged=Config merged (custom values preserved + new options added)
+upgrade.backed_up=Old config backed up
+upgrade.overwritten=Config overwritten
+upgrade.kept=Config kept
+
+# Common
+common.installed=Installed
+common.exists_skip=Already exists, skipping
+common.cron_added=Cron jobs added
+common.link_created=Command link created
+common.completion_installed=Shell completion installed
+common.completion_skip=Shell completion skipped (directory not found)
+common.confirm=Confirm? [Y/n]
+common.cancelled=Cancelled
+
+# ========== ban_manager.sh ==========
+manager.title=IP Ban Hammer
+manager.version=Version
+manager.config=Config file
+manager.ban_status=Current ban status
+manager.chain=Chain
+manager.ban_count=Banned IPs
+manager.recent_bans=Recently banned IPs
+manager.ban_list=Ban list file
+manager.records=records
+manager.file_not_exist=File not found
+manager.recent_history=Recent ban history
+manager.no_history=No history
+manager.usage=Usage
+manager.unban_done=Unbanned
+manager.unban_not_found=not in ban list
+manager.ban_done=Banned
+manager.ban_exists=already banned
+manager.ban_private_warn=Warning: banning private IP
+manager.ban_whitelist_warn=Warning: IP is in whitelist
+manager.flush_warn=Warning: This will remove all ban rules!
+manager.confirm=Confirm? (y/N):
+manager.flush_done=All ban rules removed
+manager.cancelled=Cancelled
+manager.cleanup=Cleaning up records older than
+manager.days_ago=days...
+manager.cleanup_done=Cleanup done
+manager.wl_title=Whitelist management
+manager.wl_file=File
+manager.wl_current=Current whitelist IPs
+manager.wl_not_exist=Whitelist file not found
+manager.wl_add_done=Added to whitelist
+manager.wl_del_done=Removed from whitelist
+manager.wl_not_found=not in whitelist
+manager.wl_empty=Whitelist is empty
+manager.wl_exists=already in whitelist
+manager.cur_config=Current configuration
+manager.cur_config_not=Config file not found
+manager.check_title=System environment check
+manager.check_pass=PASS
+manager.check_fail=FAIL
+manager.check_python=Python3
+manager.check_iptables=iptables permission
+manager.check_chain=iptables chain
+manager.check_config=Config file
+manager.check_whitelist=Whitelist file
+manager.stats_title=Ban statistics
+manager.stats_today=Today's bans
+manager.stats_total=Total bans
+manager.stats_top=Attack types Top5
+manager.logs_title=Recent logs
+manager.list_title=Banned IP list
+manager.no_bans=No bans recorded
+manager.list_no=No.
+manager.list_ip=IP
+manager.list_target=Target
+manager.logs_last=last
+manager.logs_lines=lines
+manager.invalid_ip=Invalid IP format
+manager.invalid_cmd=Unknown command
+manager.times=times
+
+# Command descriptions
+manager.cmd_status=Show current ban status
+manager.cmd_list=List all banned IPs
+manager.cmd_ban=Manually ban an IP
+manager.cmd_unban=Unban specified IP
+manager.cmd_flush=Remove all ban rules
+manager.cmd_cleanup=Cleanup history records
+manager.cmd_whitelist=Whitelist management
+manager.cmd_wl_add=Add to whitelist
+manager.cmd_wl_del=Remove from whitelist
+manager.cmd_analyze=Analyze logs and ban attack IPs
+manager.cmd_stats=Show ban statistics
+manager.cmd_logs=Show recent logs
+manager.cmd_check=System environment check
+manager.cmd_config=Show configuration
+manager.cmd_version=Show version info
+manager.cmd_help=Show help information
+
+# analyze subcommand
+manager.analyze_full=Full analysis (all logs)
+manager.analyze_days=Analyze last N days
+manager.analyze_threshold=Ban threshold (default 5)
+
+# ========== auto_ban_attacks.py & full_scan.py ==========
+analyzer.start=Starting log analysis...
+analyzer.config_file=Config file
+analyzer.log_file=Log file
+analyzer.time_window=Time window: last {} minutes
+analyzer.attack_threshold=Attack threshold: >= {} times
+analyzer.whitelist_file=Whitelist file
+analyzer.whitelist_ips=Whitelist IPs
+analyzer.log_not_exist=Error: Log file not exists
+analyzer.total_lines=Total log lines
+analyzer.recent_lines=Last {} minutes
+analyzer.attack_requests=Attack requests
+analyzer.found_new_bans=Found {} new attack IPs to ban:
+analyzer.times=times
+analyzer.more_ips={} more IPs
+analyzer.written_to=Written to ban list
+analyzer.no_new_bans=No new attack IPs found
+analyzer.complete=Analysis complete
+analyzer.analyzing=Analyzing
+analyzer.skipped_whitelist=Skipped whitelist IPs
+analyzer.file_size=File size
+analyzer.using_optimization=Using optimization (reverse reading)
+analyzer.lines_scanned=Lines scanned
+analyzer.early_stop=Early stop (exceeded time window)
+analyzer.elapsed_time=elapsed: {:.2f}s
+analyzer.mode_full=Mode: Full analysis
+analyzer.mode_days=Mode: Analyze last {} days
+analyzer.progress=Progress
+analyzer.start_full=Starting full analysis...
+analyzer.skipped_private=Skipped private IPs
+analyzer.ipv6_detected=IPv6 detected (not supported)
+analyzer.sending_alerts=Sending alerts...
+analyzer.preview_would_write=[PREVIEW] Would write {} IPs to: {}
+analyzer.preview_mode=PREVIEW MODE
+
+# ========== apply_iptables_ban.sh ==========
+apply.ban_list_not_exist=Ban list file not found
+apply.create_chain=Creating custom chain
+apply.banned=Banned IP
+apply.ban_failed=Ban failed
+apply.complete=Complete: %d new bans, %d skipped, %d total IPs banned
+apply.dry_run_mode=[DRY-RUN MODE] Would execute the following operations:
+apply.dry_run_chain=[DRY-RUN] iptables -N %s
+apply.dry_run_input=[DRY-RUN] iptables -I INPUT -j %s
+apply.dry_run_ban=[DRY-RUN] iptables -I %s -s %s -j DROP
+apply.dry_run_summary=[DRY-RUN SUMMARY] Would ban: %d IPs
+apply.dry_run_skipped=[DRY-RUN SUMMARY] Skipped (already banned): %d
+apply.dry_run_wl=[DRY-RUN SUMMARY] Skipped (whitelist): %d
+apply.dry_run_private=[DRY-RUN SUMMARY] Skipped (private): %d
+apply.invalid_ip=Invalid IP format, skipping
+apply.skip_wl=Skipped %d IPs in whitelist
+apply.skip_private=Skipped %d private IPs
+
+# ========== ban_manager.sh help ==========
+help.output=Output:
+help.chain_status=iptables chain status
+help.banned_count=Number of banned IPs
+help.recent_bans=Recent 10 banned IPs
+help.ban_history=Ban history
+help.arguments=Arguments:
+help.ip_required=IP address (required)
+help.reason_optional=Optional reason for the ban
+help.examples=Examples:
+help.subcommands=Subcommands:
+help.wl_show=Show current whitelist
+help.wl_add=Add IP to whitelist
+help.wl_del=Remove IP from whitelist
+help.options=Options:
+help.preview_mode=Preview mode (no write)
+help.need_root=need root
+help.not_initialized=not initialized
+help.will_create=will be created
+help.commands=Commands:
+
+# ========== Error messages ==========
+error.need_root=Error: This command requires root privileges
+error.need_root_hint=Hint: root privileges required to view iptables status
+
+# ========== Config commands ==========
+config.get_usage=Usage: ipban config get <section.key>
+config.get_example=Example: ipban config get thresholds.attack_threshold
+config.set_usage=Usage: ipban config set <section.key> <value>
+config.set_example=Example: ipban config set thresholds.attack_threshold 10
+config.key_not_found=Key not found
+config.file_not_found=Config file not found
+config.set_success=Set
+config.unknown_action=Unknown action
+config.usage=Usage: ipban config [show|get|set|edit|backup|backups|restore]
+config.cmd_get=Get config value
+config.cmd_set=Set config value
+config.cmd_edit=Edit config in editor
+config.cmd_backup=Manual config backup
+config.cmd_backups=List config backups
+config.cmd_restore=Restore config backup
+config.backup_created=Auto-backed up
+config.backup_failed=Backup failed
+config.no_backups=No config backups
+config.backup_list=Config Backup List
+config.backup_manual=Manual backup
+config.backup_restore_hint=Use ipban config restore <number or timestamp> to restore
+config.restore_usage=Usage: ipban config restore <number or timestamp>
+config.restore_success=Config restored
+config.backup_not_found=Backup not found
+install.systemd_detected=Detected systemd. Choose scheduler:
+install.systemd_cron=) cron (default, recommended)
+install.systemd_option=) systemd (alternative)
+install.systemd_select=Select [1-2, default=1]:
+install.systemd_setup=Setting up systemd timers...
+install.systemd_done=systemd timers enabled and started
+install.systemd_fallback=WARNING: systemd files not found, falling back to cron
+install.cron_not_found=WARNING: /etc/cron.d not found!

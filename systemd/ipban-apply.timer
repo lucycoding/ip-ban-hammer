@@ -1,0 +1,12 @@
+[Unit]
+Description=IP Ban Hammer - Apply Bans Timer
+Documentation=https://github.com/anomalyco/ip-ban-hammer
+Requires=ipban-apply.service
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

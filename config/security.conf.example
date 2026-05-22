@@ -1,0 +1,96 @@
+# IP Ban Hammer Configuration File Example
+# Copy this file to /etc/ip-ban-hammer/security.conf and modify as needed
+# Generated automatically during installation
+
+[paths]
+# Log files to monitor (comma-separated for multiple)
+# Example: log_files = /www/wwwlogs/www.log,/www/wwwlogs/access.log
+log_files = /www/wwwlogs/www.log
+
+# Data files (usually no need to change)
+pending = /var/lib/ip-ban-hammer/pending.list
+applied = /var/lib/ip-ban-hammer/applied.list
+allow = /etc/ip-ban-hammer/allow.list
+
+# Log files (usually no need to change)
+main_log = /var/log/ip-ban-hammer/main.log
+history = /var/log/ip-ban-hammer/history.log
+stats = /var/log/ip-ban-hammer/stats.log
+
+[iptables]
+# iptables chain name (change if conflicts with other tools)
+chain_name = IP_BAN_HAMMER
+
+[thresholds]
+# Number of attacks to trigger ban
+# Lower = more sensitive, Higher = fewer false positives
+# Recommended: 3-5 for personal sites, 10-20 for high-traffic sites
+attack_threshold = 5
+
+# Time window in minutes for attack counting
+# Attacks within this window are counted together
+time_window_minutes = 30
+
+# Days to keep ban history
+days_to_keep = 30
+
+# File size threshold (MB) to use reverse reading optimization
+# Files larger than this will be read in reverse for faster processing
+reverse_read_threshold_mb = 100
+
+[cron]
+# Log analysis frequency (cron format)
+# Recommended: match or shorter than time_window_minutes
+analyze_cron = */30 * * * *
+
+# Ban application frequency (keep every minute for timely blocking)
+apply_cron = * * * * *
+
+# Cleanup schedule (format: min hour day month weekday)
+# Default: daily at 3:00 AM
+cleanup_cron = 0 3 * * *
+
+[general]
+# Language: zh (Chinese) or en (English)
+language = zh
+
+# Enable colored output: true or false
+color_output = true
+
+[security]
+# Skip private/reserved IP addresses from banning
+# Includes: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 127.0.0.0/8, etc.
+skip_private_ip = true
+
+# Log IP extraction method
+# Options:
+#   auto      - Auto-detect (default, tries: first field, JSON, X-Forwarded-For, any IP)
+#   first     - IP is first field (standard NCSA format)
+#   forwarded - Extract from X-Forwarded-For header (uses rightmost IP)
+#   json      - JSON format log (specify json_ip_key below)
+#   custom    - Custom regex (specify custom_ip_regex below)
+log_ip_position = auto
+
+# JSON log IP key (only used when log_ip_position = json)
+# Example: json_ip_key = remote_addr
+# json_ip_key = remote_addr
+
+# Custom regex for IP extraction (only used when log_ip_position = custom)
+# Must contain a capture group for the IP address
+# Example: custom_ip_regex = ^(\d+\.\d+\.\d+\.\d+)
+# custom_ip_regex =
+
+[alert]
+# Alert notification configuration (optional)
+# Choose webhook OR email, not both (webhook takes priority)
+
+# Webhook URL for HTTP POST notifications
+# Example: webhook_url = https://hooks.slack.com/services/XXX/YYY/ZZZ
+# Example: webhook_url = https://discord.com/api/webhooks/XXX/YYY
+# webhook_url = 
+
+# Email recipient for notifications (requires mail/sendmail command)
+# email_to = admin@example.com
+
+# Email sender address (optional)
+# email_sender = ipban-noreply@example.com

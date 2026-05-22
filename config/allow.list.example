@@ -1,0 +1,18 @@
+# IP Ban Hammer Allow List
+# One IP or CIDR per line, lines starting with # are comments
+# These IPs will not be automatically banned
+
+# Single IP examples:
+# 192.168.1.100
+# 10.0.0.50
+
+# CIDR examples (IP range):
+# 10.0.0.0/8           # Private network 10.x.x.x
+# 172.16.0.0/12        # Private network 172.16-31.x.x
+# 192.168.0.0/16       # Private network 192.168.x.x
+
+# Search engine IP ranges (optional):
+# 66.249.64.0/19       # Google
+# 123.125.0.0/16       # Baidu
+# 220.181.0.0/16       # Baidu
+# 157.55.0.0/16        # Bing

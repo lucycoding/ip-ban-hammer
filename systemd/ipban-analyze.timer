@@ -1,0 +1,12 @@
+[Unit]
+Description=IP Ban Hammer - Log Analyzer Timer
+Documentation=https://github.com/anomalyco/ip-ban-hammer
+Requires=ipban-analyze.service
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=30min
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

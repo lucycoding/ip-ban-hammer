@@ -1,0 +1,331 @@
+# IP Ban Hammer 中文语言包
+# 格式: key=value
+
+# 语言元数据
+lang.name=中文
+lang.code=zh
+
+# ========== install.sh ==========
+install.title=IP Ban Hammer - 安装脚本
+install.upgrade_title=IP Ban Hammer - 升级脚本
+install.done=安装完成!
+install.upgrade_done=升级完成!
+install.lang_select=请选择安装语言 / Select installation language:
+install.lang_option1=中文
+install.lang_option2=English
+install.lang_prompt=请选择 [1-2]:
+
+# 步骤
+install.step1=[1/10] 创建目录...
+install.step2=[2/10] 检测并配置日志文件...
+install.step3=[3/10] 配置白名单IP...
+install.step4=[4/10] 配置封禁策略...
+install.step5=[5/10] 高级配置...
+install.step6=[6/10] 复制可执行脚本...
+install.step7=[7/10] 安装运行时配置...
+install.step8=[8/10] 设置权限...
+install.step9=[9/10] 配置定时任务...
+install.step10=[10/10] 安装命令行工具...
+
+# 日志文件配置
+log.detecting=自动检测中...
+log.detected=检测到以下日志文件:
+log.not_detected=未检测到日志文件
+log.select=请选择要监控的日志文件 (序号如: 1,2,3 或直接输入路径，多个用逗号分隔)
+log.selected=已选择:
+log.confirm=验证通过，是否确认? [Y/n]
+log.retry=输入无效，请重新输入 (或输入 'skip' 跳过):
+log.retry_invalid=以下文件不存在:
+log.modified=修改
+log.size=大小
+log.manual=请输入日志文件路径 (多个用逗号分隔):
+
+# 白名单配置
+ip.detected=检测到本机IP:
+ip.private=内网IP:
+ip.public=公网IP:
+ip.public_failed=获取失败 (可手动添加)
+ip.add_auto=是否将以上IP添加到白名单? [Y/n]
+ip.add_manual=是否添加其他IP? (多个用逗号分隔，留空跳过):
+ip.added=已添加到白名单:
+ip.retry=IP格式无效，请重新输入:
+ip.none=无
+ip.final=最终白名单:
+
+# 封禁策略
+policy.title=请选择您的网站类型:
+policy.option1=个人博客/小型网站   (阈值: 3次,  窗口: 30分钟) - 快速响应，适合低流量
+policy.option2=企业官网/中型网站   (阈值: 5次,  窗口: 30分钟) - 平衡模式，推荐选择
+policy.option3=电商平台/大型网站   (阈值: 10次, 窗口: 20分钟) - 避免误封，高流量场景
+policy.option4=API服务/高频请求    (阈值: 15次, 窗口: 10分钟) - 短窗口，高频请求
+policy.option5=自定义配置
+policy.select=请选择 [1-5]:
+policy.selected=已选择:
+policy.threshold_custom=请输入攻击阈值 (触发封禁的攻击次数，默认: 5):
+policy.window_custom=请输入时间窗口 (分钟，默认: 30):
+policy.threshold=攻击阈值
+policy.window=时间窗口
+policy.desc=说明
+policy.desc_format={}分钟内同一IP触发{}次攻击特征则封禁
+
+# 高级配置
+advanced.ask=是否进入高级配置模式? [y/N]
+advanced.chain=自定义 iptables 链名称 (默认: IP_BAN_HAMMER，留空使用默认):
+advanced.days=历史记录保留天数 (默认: 30):
+advanced.analyze_cron=日志分析频率 (cron 格式，默认: */30 * * * *):
+advanced.cleanup_cron=历史清理时间 (cron 格式，默认: 0 3 * * *):
+advanced.done=高级配置完成:
+advanced.chain_label=iptables 链
+advanced.history_days=历史保留
+advanced.analyze_freq=分析频率
+advanced.cleanup_time=清理时间
+advanced.default=默认
+advanced.cron_invalid=cron 格式无效，请重新输入:
+
+# 配置摘要
+summary.title=配置摘要:
+summary.logs=日志文件:
+summary.whitelist=白名单IP:
+summary.policy=封禁策略:
+summary.advanced=高级配置:
+summary.language=界面语言:
+summary.times=次
+summary.minutes=分钟
+summary.days=天
+
+# 管理命令
+manage.title=管理命令:
+manage.status=查看状态
+manage.config=查看配置
+manage.help=查看帮助
+uninstall.section_title=卸载命令:
+uninstall.title=IP Ban Hammer - 卸载脚本
+uninstall.warn=警告: 这将完全移除 IP Ban Hammer
+uninstall.confirm=确认卸载? (y/N): 
+uninstall.cancelled=已取消
+uninstall.removing=正在移除...
+uninstall.remove_chain=移除iptables链
+uninstall.remove_cron=移除定时任务
+uninstall.remove_files=移除文件
+uninstall.remove_link=移除命令链接
+uninstall.done=卸载完成!
+uninstall.preserved=以下文件已保留，请手动删除(如需要):
+uninstall.keep_config=配置和数据文件:
+uninstall.keep_data=数据文件:
+uninstall.keep_logs=日志文件:
+
+# 升级相关
+upgrade.detected=检测到已安装版本，选择配置处理方式:
+upgrade.option1=覆盖配置 (使用新默认配置，丢失自定义)
+upgrade.option2=保留配置 (保持旧配置，可能缺失新项)
+upgrade.option3=合并配置 (保留自定义值，添加新项) (推荐)
+upgrade.select=请输入选择 [1/2/3]:
+upgrade.merged=已合并配置 (保留自定义值 + 添加新项)
+upgrade.backed_up=已备份旧配置
+upgrade.overwritten=已覆盖配置
+upgrade.kept=已保留配置
+
+# 通用
+common.installed=已安装
+common.exists_skip=已存在，跳过
+common.cron_added=定时任务已添加
+common.link_created=已创建命令链接
+common.completion_installed=已安装Shell补全
+common.completion_skip=跳过Shell补全 (目录不存在)
+common.confirm=是否确认? [Y/n]
+common.cancelled=已取消
+
+# ========== ban_manager.sh ==========
+manager.title=IP Ban Hammer
+manager.version=版本
+manager.config=配置文件
+manager.ban_status=当前封禁状态
+manager.chain=封禁链
+manager.ban_count=封禁IP数
+manager.recent_bans=最近封禁的IP
+manager.ban_list=封禁列表文件
+manager.records=条记录
+manager.file_not_exist=文件不存在
+manager.recent_history=最近封禁历史
+manager.no_history=无历史记录
+manager.usage=用法
+manager.unban_done=已解封
+manager.unban_not_found=不在封禁列表中
+manager.ban_done=已封禁
+manager.ban_exists=已在封禁列表中
+manager.ban_private_warn=警告: 正在封禁私有IP
+manager.ban_whitelist_warn=警告: IP在白名单中
+manager.flush_warn=警告: 这将清除所有封禁规则!
+manager.confirm=确认? (y/N):
+manager.flush_done=已清除所有封禁规则
+manager.cancelled=已取消
+manager.cleanup=清理
+manager.days_ago=天前的封禁记录...
+manager.cleanup_done=已清理
+manager.wl_title=白名单管理
+manager.wl_file=文件
+manager.wl_current=当前白名单IP
+manager.wl_not_exist=白名单文件不存在
+manager.wl_add_done=已添加到白名单
+manager.wl_del_done=已从白名单移除
+manager.wl_not_found=不在白名单中
+manager.wl_empty=白名单为空
+manager.wl_exists=已在白名单中
+manager.cur_config=当前配置
+manager.cur_config_not=配置文件不存在
+manager.check_title=系统环境检查
+manager.check_pass=通过
+manager.check_fail=失败
+manager.check_python=Python3
+manager.check_iptables=iptables权限
+manager.check_chain=iptables链
+manager.check_config=配置文件
+manager.check_whitelist=白名单文件
+manager.stats_title=封禁统计
+manager.stats_today=今日封禁
+manager.stats_total=总封禁数
+manager.stats_top=攻击类型Top5
+manager.logs_title=最近日志
+manager.list_title=封禁IP列表
+manager.no_bans=无封禁记录
+manager.list_no=序号
+manager.list_ip=IP地址
+manager.list_target=目标
+manager.logs_last=最近
+manager.logs_lines=行
+manager.invalid_ip=无效的IP格式
+manager.invalid_cmd=未知命令
+manager.times=次
+
+# 命令描述
+manager.cmd_status=查看当前封禁状态
+manager.cmd_list=列出所有封禁IP
+manager.cmd_ban=手动封禁IP
+manager.cmd_unban=解封指定IP
+manager.cmd_flush=清除所有封禁规则
+manager.cmd_cleanup=清理历史记录
+manager.cmd_whitelist=白名单管理
+manager.cmd_wl_add=添加白名单
+manager.cmd_wl_del=删除白名单
+manager.cmd_analyze=分析日志并封禁攻击IP
+manager.cmd_stats=显示封禁统计
+manager.cmd_logs=查看最近日志
+manager.cmd_check=系统环境检查
+manager.cmd_config=查看配置文件
+manager.cmd_version=显示版本信息
+manager.cmd_help=显示帮助信息
+
+# analyze 子命令
+manager.analyze_full=全量分析 (所有日志)
+manager.analyze_days=分析最近N天
+manager.analyze_threshold=封禁阈值 (默认5)
+
+# ========== auto_ban_attacks.py & full_scan.py ==========
+analyzer.start=开始分析日志...
+analyzer.config_file=配置文件
+analyzer.log_file=日志文件
+analyzer.time_window=时间窗口: 最近 {} 分钟
+analyzer.attack_threshold=攻击阈值: >= {} 次
+analyzer.whitelist_file=白名单文件
+analyzer.whitelist_ips=白名单IP
+analyzer.log_not_exist=错误: 日志文件不存在
+analyzer.total_lines=总日志行数
+analyzer.recent_lines=最近{}分钟
+analyzer.attack_requests=攻击请求
+analyzer.found_new_bans=发现 {} 个新攻击IP需要封禁:
+analyzer.times=次
+analyzer.more_ips=还有 {} 个IP
+analyzer.written_to=已写入封禁列表
+analyzer.no_new_bans=没有发现新的攻击IP需要封禁
+analyzer.complete=分析完成
+analyzer.analyzing=正在分析
+analyzer.skipped_whitelist=跳过白名单IP
+analyzer.file_size=文件大小
+analyzer.using_optimization=使用优化模式(反向读取)
+analyzer.lines_scanned=扫描行数
+analyzer.early_stop=提前终止(已超出时间窗口)
+analyzer.elapsed_time=耗时: {:.2f}秒
+analyzer.mode_full=模式: 全量分析
+analyzer.mode_days=模式: 分析最近 {} 天
+analyzer.progress=进度
+analyzer.start_full=开始全量分析...
+analyzer.skipped_private=跳过私有IP
+analyzer.ipv6_detected=检测到IPv6 (不支持)
+analyzer.sending_alerts=发送告警中...
+analyzer.preview_would_write=[预览] 将写入 {} 个IP到: {}
+analyzer.preview_mode=预览模式
+
+# ========== apply_iptables_ban.sh ==========
+apply.ban_list_not_exist=封禁列表文件不存在
+apply.create_chain=创建自定义链
+apply.banned=已封禁IP
+apply.ban_failed=封禁失败
+apply.complete=执行完成: 新增封禁 %d 个, 跳过 %d 个, 当前共 %d 个IP被封禁
+apply.dry_run_mode=[模拟运行模式] 将执行以下操作:
+apply.dry_run_chain=[模拟运行] iptables -N %s
+apply.dry_run_input=[模拟运行] iptables -I INPUT -j %s
+apply.dry_run_ban=[模拟运行] iptables -I %s -s %s -j DROP
+apply.dry_run_summary=[模拟运行汇总] 将封禁: %d 个IP
+apply.dry_run_skipped=[模拟运行汇总] 跳过(已封禁): %d
+apply.dry_run_wl=[模拟运行汇总] 跳过(白名单): %d
+apply.dry_run_private=[模拟运行汇总] 跳过(私有IP): %d
+apply.invalid_ip=无效IP格式, 跳过
+apply.skip_wl=跳过 %d 个白名单IP
+apply.skip_private=跳过 %d 个私有IP
+
+# ========== ban_manager.sh 帮助 ==========
+help.output=输出:
+help.chain_status=iptables 链状态
+help.banned_count=封禁IP数量
+help.recent_bans=最近10个封禁IP
+help.ban_history=封禁历史
+help.arguments=参数:
+help.ip_required=IP 地址 (必填)
+help.reason_optional=封禁原因 (可选)
+help.examples=示例:
+help.subcommands=子命令:
+help.wl_show=显示当前白名单
+help.wl_add=添加IP到白名单
+help.wl_del=从白名单移除IP
+help.options=选项:
+help.preview_mode=预览模式 (不写入)
+help.need_root=需要 root
+help.not_initialized=未初始化
+help.will_create=将被创建
+help.commands=命令:
+error.need_root=错误: 此命令需要 root 权限
+error.need_root_hint=提示: 需要 root 权限才能查看 iptables 状态
+
+# ========== 配置命令 ==========
+config.get_usage=用法: ipban config get <section.key>
+config.get_example=示例: ipban config get thresholds.attack_threshold
+config.set_usage=用法: ipban config set <section.key> <value>
+config.set_example=示例: ipban config set thresholds.attack_threshold 10
+config.key_not_found=配置项未找到
+config.file_not_found=配置文件未找到
+config.set_success=已设置
+config.unknown_action=未知操作
+config.usage=用法: ipban config [show|get|set|edit|backup|backups|restore]
+config.cmd_get=获取配置值
+config.cmd_set=设置配置值
+config.cmd_edit=编辑器打开配置
+config.cmd_backup=手动备份配置
+config.cmd_backups=查看配置备份列表
+config.cmd_restore=恢复配置备份
+config.backup_created=已自动备份
+config.backup_failed=备份失败
+config.no_backups=暂无配置备份
+config.backup_list=配置备份列表
+config.backup_manual=手动备份
+config.backup_restore_hint=使用 ipban config restore <编号或时间戳> 恢复
+config.restore_usage=用法: ipban config restore <编号或时间戳>
+config.restore_success=已恢复配置
+config.backup_not_found=备份未找到
+install.systemd_detected=检测到 systemd。选择调度器:
+install.systemd_cron=) cron (默认，推荐)
+install.systemd_option=) systemd (可选)
+install.systemd_select=选择 [1-2, 默认=1]:
+install.systemd_setup=设置 systemd 定时器...
+install.systemd_done=systemd 定时器已启用并启动
+install.systemd_fallback=警告: systemd 文件未找到，回退到 cron
+install.cron_not_found=警告: /etc/cron.d 未找到!
