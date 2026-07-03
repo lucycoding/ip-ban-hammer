@@ -33,7 +33,7 @@ ATTACK_PATTERNS = {
     ],
     'XSS Attack': [
         r"(?i)(javascript\s*:)",
-        r"(?i)(on\w+\s*=)",
+        r"""(?i)(on(?:error|load|click|mouseover|focus|blur|submit|change|keydown|keyup|mouseenter|mouseleave|input|dblclick|contextmenu|drag|drop|wheel|touchstart|touchend|pointerover|pointerenter|pointerdown|pointerup|pointerleave|pointerout|beforeinput|compositionstart|compositionend|cut|copy|paste)\s*=\s*['\"]?\s*(?:javascript|vbscript|data\s*:))""",
         r"(?i)(<script[^>]*>)",
         r"(?i)(<iframe[^>]*>)",
     ],
